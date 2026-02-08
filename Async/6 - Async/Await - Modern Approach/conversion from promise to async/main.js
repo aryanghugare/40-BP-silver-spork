@@ -69,7 +69,6 @@ function showComments(comments) {
             commentsElement.textContent = `${comment.name}, by - ${comment.user.name}`;
             commentsContainer.append(commentsElement);
         }
-
         commentsElement.append(commentsContainer);
     }
 
@@ -97,6 +96,4 @@ document.querySelector("#show").addEventListener("click", async function () {
     showComments(userComments);
     clearLoader();
 })
-
-
 
