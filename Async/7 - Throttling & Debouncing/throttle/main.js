@@ -12,9 +12,10 @@ function throttle(fn, delay) {
 
     return function (...args) {
         if (isRunning) return;
+        isRunning = true;
         setTimeout(() => {
             fn.apply(this, args);
-            isRunning = true;
+            isRunning = false;
         }, delay);
     }
 }
