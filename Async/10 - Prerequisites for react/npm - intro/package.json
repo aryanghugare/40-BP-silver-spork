@@ -1,0 +1,16 @@
+{
+  "name": "intro",
+  "version": "1.0.0",
+  "description": "for teaching students",
+  "main": "main.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.mjs"
+  },
+  "author": "gaurav",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.5"
+  }
+}

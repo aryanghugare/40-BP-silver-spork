@@ -1,6 +1,20 @@
 // barrel import 
 import { intersection, groupBy } from "./lib/index.js";
 
+import axios from "./axios.js";
+
+
+axios.get("/posts/1").then(result =>
+    console.log(result)
+)
+axios.get("/posts/1/comments").then(result =>
+    console.log(result)
+)
+
+axios.post("/posts", {
+    title: "xzy"
+}).then(console.log)
+
 // main.js is loaded
 // it's dependencies are also loaded like intersection from lib/index.js
 
