@@ -32,7 +32,9 @@ fifth();
 fourth();
 second();
 first();
-// b a e d c f
+// output - b a e d c f
+
+// event loop monitors callstack, mircrotask queue and task queue
 
 // order of execution
 
@@ -48,6 +50,7 @@ first();
 
 function infiniteFn() {
     console.log("function called")
+    // this function will fill the microtask queue completely
     Promise.resolve().then(infiniteFn);
 }
 // mircrotask starvation
