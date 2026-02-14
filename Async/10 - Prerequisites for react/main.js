@@ -1,3 +1,7 @@
+// barrel import 
+import { intersection } from "./lib";
+
+
 export function hello() {
     console.log("hello world");
 }
@@ -35,5 +39,6 @@ export default counter;
 
 // - value at the time of          live/latest value
 // import
+
 
 
