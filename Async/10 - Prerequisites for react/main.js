@@ -1,6 +1,14 @@
 // barrel import 
-import { intersection } from "./lib";
+import { intersection, groupBy } from "./lib/index.js";
 
+// main.js is loaded
+// it's dependencies are also loaded like intersection from lib/index.js
+
+function common() {
+    intersection([1, 2], [2, 3])
+}
+
+common();
 
 export function hello() {
     console.log("hello world");
