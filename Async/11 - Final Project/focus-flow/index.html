@@ -14,30 +14,30 @@
             <label for="session-name">Name</label>
             <input type="text" name="session-name" id="session-name" required />
           </section>
-          <span class="validation-msg"> validation message</span>
+          <span class="validation-msg">Session name should be 3 characters or more.</span>
         </section>
         <section class="fields">
           <section class="field-group">
             <label for="duration">Study Duration</label>
             <input type="number" name="duration" id="duration" required />
           </section>
-          <span class="validation-msg"></span>
+          <span class="validation-msg">Study duration should be 5 mins or more.</span>
         </section>
         <section class="fields">
           <section class="field-group">
             <label for="break">Break Duration</label>
             <input type="number" name="break-duration" id="break-duration" required />
           </section>
-          <span class="validation-msg"></span>
+          <span class="validation-msg">Break duration should be 2 mins or more</span>
         </section>
         <section class="fields">
           <section class="field-group">
             <label for="cycles">Cycles</label>
             <input type="number" name="cycles" id="cycles" required />
           </section>
-          <span class="validation-msg"></span>
+          <span class="validation-msg">Cycle should be 1 or more.</span>
         </section>
-        <button type="submit">Start Session</button>
+        <button type="submit" disabled id="start-session">Start Session</button>
       </form>
     </main>
     <script type="module" src="/src/main.js"></script>
