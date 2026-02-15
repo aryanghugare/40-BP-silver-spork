@@ -9,24 +9,32 @@
   <body>
     <main id="focus-flow">
       <form id="create-session-form">
-        <section>
-          <label for="session-name">Name</label>
-          <input type="text" name="session-name" id="session-name" required />
+        <section class="fields">
+          <section class="field-group">
+            <label for="session-name">Name</label>
+            <input type="text" name="session-name" id="session-name" required />
+          </section>
           <span class="validation-msg"></span>
         </section>
-        <section>
-          <label for="duration">Study Duration</label>
-          <input type="number" name="duration" id="duration" required />
+        <section class="fields">
+          <section class="field-group">
+            <label for="duration">Study Duration</label>
+            <input type="number" name="duration" id="duration" required />
+          </section>
           <span class="validation-msg"></span>
         </section>
-        <section>
-          <label for="break">Break Duration</label>
-          <input type="number" name="break-duration" id="break-duration" required />
+        <section class="fields">
+          <section class="field-group">
+            <label for="break">Break Duration</label>
+            <input type="number" name="break-duration" id="break-duration" required />
+          </section>
           <span class="validation-msg"></span>
         </section>
-        <section>
-          <label for="cycles">Cycles</label>
-          <input type="number" name="cycles" id="cycles" required />
+        <section class="fields">
+          <section class="field-group">
+            <label for="cycles">Cycles</label>
+            <input type="number" name="cycles" id="cycles" required />
+          </section>
           <span class="validation-msg"></span>
         </section>
         <button type="submit">Start Session</button>

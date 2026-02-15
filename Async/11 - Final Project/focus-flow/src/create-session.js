@@ -14,5 +14,10 @@ import "./create-session.css"
 export const setupSessionCreation = (sessionForm) => {
 
     console.log(sessionForm);
+
+}
+
+const onFormInput = (event) => {
+    console.log(event)
 }
 
