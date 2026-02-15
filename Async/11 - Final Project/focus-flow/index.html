@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>focus-flow</title>
+  </head>
+  <body>
+    <main id="focus-flow">
+      <form id="create-session-form">
+        <section>
+          <label for="session-name">Name</label>
+          <input type="text" name="session-name" id="session-name" required />
+          <span class="validation-msg"></span>
+        </section>
+        <section>
+          <label for="duration">Study Duration</label>
+          <input type="number" name="duration" id="duration" required />
+          <span class="validation-msg"></span>
+        </section>
+        <section>
+          <label for="break">Break Duration</label>
+          <input type="number" name="break-duration" id="break-duration" required />
+          <span class="validation-msg"></span>
+        </section>
+        <section>
+          <label for="cycles">Cycles</label>
+          <input type="number" name="cycles" id="cycles" required />
+          <span class="validation-msg"></span>
+        </section>
+        <button type="submit">Start Session</button>
+      </form>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
