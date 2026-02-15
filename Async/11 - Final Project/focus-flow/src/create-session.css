@@ -18,7 +18,10 @@
       align-items: center;
     }
     .validation-msg {
-      display: none;
+      /* display: none; */
+      color: palevioletred;
+      align-self: flex-end;
+      font-size: x-small;
     }
   }
 }
