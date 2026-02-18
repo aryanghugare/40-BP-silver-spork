@@ -1,0 +1,18 @@
+#session-view {
+  width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .progress {
+    background: slategray;
+    border-radius: 8px;
+    overflow: hidden;
+    .progress-indicator {
+      height: 16px;
+      background: slateblue;
+      width: 0;
+    }
+  }
+}

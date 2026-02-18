@@ -1,5 +1,12 @@
 import "./create-session.css"
 import { debounce } from "./utils/debounce";
+import { startSession } from "./session-view";
+import STORAGE_KEYS from "./common/storage-keys";
+import { saveToStorage } from "./utils/storage";
+const state = {
+    currentSessionId: null,
+
+}
 
 export const setupSessionCreation = (sessionForm) => {
 
@@ -9,6 +16,9 @@ export const setupSessionCreation = (sessionForm) => {
     sessionForm.addEventListener("submit", createNewSession)
 }
 
+
+
+
 function createNewSession(event) {
     event.preventDefault();
     const formData = new FormData(this);
@@ -17,6 +27,10 @@ function createNewSession(event) {
     const breakDuration = formData.get("break-duration");
     const cycles = formData.get("cycles");
     console.log({ name, duration, breakDuration, cycles })
+    const sessionId = crypto.randomUUID();
+    const newSession = { sessionId, name, duration, breakDuration, cycles };
+    saveToStorage(newSession, STORAGE_KEYS.CURRENT_SESSION)
+    startSession(newSession);
 }
 
 function showValidationForField(element) {
@@ -71,12 +85,7 @@ const onFormInput = (event) => {
     if (target.name === "cycles") {
         validateForMinValue(target, 1);
     }
-
-    if (areAllFieldsValid()) {
-        document.querySelector("#start-session").removeAttribute("disabled")
-    } else {
-        document.querySelector("#start-session").setAttribute("disabled")
-    }
+    document.querySelector("#start-session").disabled = !areAllFieldsValid()
 
 }
 
