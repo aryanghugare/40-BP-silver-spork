@@ -12,3 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setupSessionCreation(document.querySelector("#focus-flow #create-session-form"));
   }
 })
+
+export function showCreateSessionView() {
+  document.querySelector("#focus-flow #create-session-form").classList.remove("hidden");
+  document.querySelector("#session-view").classList.add("hidden");
+}

@@ -1,5 +1,7 @@
+import STORAGE_KEYS from "../common/storage-keys";
+
 function saveToStorage(session, key) {
-    localStorage.setItem(key, JSON.stringify(session));
+    localStorage.setItem(key, session ? JSON.stringify(session) : null);
 }
 
 function readFromStorage(key) {
@@ -11,4 +13,13 @@ function readFromStorage(key) {
     }
 }
 
-export { saveToStorage, readFromStorage }
+function addToHistory(session) {
+    let sessions = readFromStorage(STORAGE_KEYS.SESSION_HISTORY);
+    if (!sessions) {
+        sessions = [];
+    }
+    sessions.push(session);
+    saveToStorage(sessions, STORAGE_KEYS.SESSION_HISTORY);
+}
+
+export { saveToStorage, readFromStorage, addToHistory }

@@ -8,7 +8,7 @@
   </head>
   <body>
     <main id="focus-flow">
-      <!-- <form id="create-session-form">
+      <form id="create-session-form" class="hidden">
         <section class="fields">
           <section class="field-group">
             <label for="session-name">Name</label>
@@ -38,10 +38,11 @@
           <span class="validation-msg">Cycle should be 1 or more.</span>
         </section>
         <button type="submit" disabled id="start-session">Start Session</button>
-      </form> -->
-      <article id="session-view">
+      </form>
+      <article id="session-view" class="hidden">
         <h1 class="title">Session Name</h1>
         <section class="status">Status : <span class="status-value"></span></section>
+        <section class="motivational-quote hidden"></section>
         <section class="timer">
           <section><span class="minutes">MM</span><span>:</span><span class="seconds">SS</span></section>
         </section>
@@ -52,6 +53,7 @@
         <footer>
           <button id="pause">⏸️ Pause</button>
           <button id="resume" class="hidden">▶️ Resume</button>
+          <button id="new-session" class="hidden">New Session</button>
         </footer>
       </article>
     </main>

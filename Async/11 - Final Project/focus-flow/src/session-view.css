@@ -4,15 +4,29 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-
+  align-items: center;
+  justify-content: center;
+  &.hidden {
+    display: none;
+  }
+  .timer {
+    font-size: 1.5rem;
+  }
+  .motivational-quote {
+    font-style: italic;
+    font-size: 1.5rem;
+    color: mediumslateblue;
+  }
   .progress {
     background: slategray;
+    width: 100%;
     border-radius: 8px;
     overflow: hidden;
     .progress-indicator {
       height: 16px;
       background: slateblue;
       width: 0;
+      transition: width ease-in-out 0.3s;
     }
   }
 }

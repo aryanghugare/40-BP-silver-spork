@@ -3,21 +3,12 @@ import { debounce } from "./utils/debounce";
 import { startSession } from "./session-view";
 import STORAGE_KEYS from "./common/storage-keys";
 import { saveToStorage } from "./utils/storage";
-const state = {
-    currentSessionId: null,
-
-}
 
 export const setupSessionCreation = (sessionForm) => {
-
-    console.log(sessionForm);
-
+    document.querySelector("#focus-flow #create-session-form").classList.remove("hidden");
     sessionForm.addEventListener("input", debounce(onFormInput, 300))
     sessionForm.addEventListener("submit", createNewSession)
 }
-
-
-
 
 function createNewSession(event) {
     event.preventDefault();
@@ -29,6 +20,7 @@ function createNewSession(event) {
     console.log({ name, duration, breakDuration, cycles })
     const sessionId = crypto.randomUUID();
     const newSession = { sessionId, name, duration, breakDuration, cycles };
+    document.querySelector("#focus-flow #create-session-form").classList.add("hidden");
     saveToStorage(newSession, STORAGE_KEYS.CURRENT_SESSION)
     startSession(newSession);
 }
