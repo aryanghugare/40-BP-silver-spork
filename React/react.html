@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Intro</title>
+  </head>
+  <body>
+    <main id="root">
+      <!-- <section><span>Hello</span></section> -->
+    </main>
+
+    <!-- <script>
+      const section = document.createElement("section");
+
+      section.textContent = "Hello react";
+      section.className = "container";
+
+      const root = document.getElementById("root");
+
+      root.append(section);
+    </script> -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="module">
+      import React from "https://esm.sh/react?dev";
+      import { createRoot } from "https://esm.sh/react-dom/client?dev";
+      window.React = React;
+      window.createRoot = createRoot;
+      //   const section = React.createElement("section", {
+      //     className: "container",
+
+      //     children: [
+      //       React.createElement("span", {
+      //         children: "Hello",
+      //         key: 1,
+      //       }),
+      //       React.createElement("span", {
+      //         children: "World",
+      //         className: "title",
+      //         key: 2,
+      //         style: {
+      //           color: "royalblue",
+      //           backgroundColor: "rosybrown",
+      //         },
+      //         onClick: () => {
+      //           console.log("clicked");
+      //         },
+      //       }),
+      //     ],
+      //   });
+      //   console.log(section);
+      //   const root = document.getElementById("root");
+      //   createRoot(root).render(section);
+    </script>
+    <script type="text/babel">
+      const section = (
+        <section>
+          <span>Hello</span>
+          <span>World</span>
+        </section>
+      );
+
+      console.log(section);
+      const root = document.getElementById("root");
+      // entry point for react. react takes over dom creation 👇🏼
+      createRoot(root).render(section);
+    </script>
+  </body>
+</html>

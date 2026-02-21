@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main id="root">
+      <section><span>Hello</span> <span style="color: royalblue; background-color: rosybrown">World</span></section>
+    </main>
+    <script>
+      const section = document.createElement("section");
+      section.className = "container";
+
+      section.textContent = "Hello react";
+
+      const root = document.getElementById("root");
+
+      root.append(section);
+    </script>
+  </body>
+</html>
