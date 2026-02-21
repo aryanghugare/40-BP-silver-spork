@@ -53,10 +53,41 @@
       //   createRoot(root).render(section);
     </script>
     <script type="text/babel">
+      const greeting = "";
+      function Message(props) {
+        return (
+          <span>
+            {props.msg}
+            <br />
+          </span>
+        );
+      }
+
+      function Box(props) {
+        console.log(props);
+        return <div className="box container">{props.children}</div>;
+      }
+      function handleClick() {
+        console.log("clicked");
+      }
+      //   {} - interpolation
+      // accepts javascript expression.
       const section = (
-        <section>
-          <span>Hello</span>
-          <span>World</span>
+        <section onClick={handleClick}>
+          {greeting ? greeting : "Hey"}
+          {greeting ? <span>{greeting}</span> : null}
+          <br />
+          {Message({ msg: "Hi from react" })}
+          {Message({ msg: "Hello students" })}
+          // regular way of calling a function
+          {Message({ msg: "are you understanding react?" })}
+          // same thing can be done in react as shown below
+          <br />
+          <Message msg="from this element" />
+          <Box />
+          <Box xyz="some value">
+            <p>child</p>
+          </Box>
         </section>
       );
 
