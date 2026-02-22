@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <section>content</section>
+      <section className="content">Content</section>
       <Footer />
     </>
   );
