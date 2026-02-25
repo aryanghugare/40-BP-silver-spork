@@ -5,6 +5,7 @@ import UncontrolledForm from "./components/form";
 import ControlledForm from "./components/controlled-form";
 import StateForm from "./components/state-with-object";
 import SingleChangeHandlerForm from "./components/single-change-handler";
+import RegistrationForm from "./components/registration-form";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <ControlledForm />
       <StateForm />
       <SingleChangeHandlerForm />
+      <RegistrationForm />
     </>
   );
 }
