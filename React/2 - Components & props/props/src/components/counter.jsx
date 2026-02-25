@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 // ui = fn(state);
 // let fruits = ["apple", "orange"];
 // let [fruit1, fruit2] = fruits;
