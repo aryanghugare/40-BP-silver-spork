@@ -5,8 +5,9 @@ import { useState } from "react";
 export default function Counter() {
   //   const state = useState(1);
   //   let count = state[0]; // state variable
-  //   console.log(count);
+  // maintain state between re-renders
   let [count, setCount] = useState(1);
+  console.log(count);
   //   let setCount = state[1]; // updater function which will update the state variable
 
   //   let text = "hello";
@@ -16,7 +17,15 @@ export default function Counter() {
   return (
     <button
       onClick={() => {
-        setCount(count + 1);
+        // updater fn syntax
+        setCount((prev) => prev + 1); // 1+1=>2
+        setCount((prev) => prev + 1); // prev =2 => 2+ 1=3
+        setCount((prev) => prev + 1); // prev = 3 => 3+1 =4
+        setCount((prev) => prev + 1); // prev = 4 => 4+1 =5
+        // multiple set statements get batched
+        // setCount(count + 1); //=> 1+1 =2
+        // setCount(count + 1); //=> 1+1 =2
+        // setCount(count + 1); //=> 1+1 =2
       }}
     >
       {count}
