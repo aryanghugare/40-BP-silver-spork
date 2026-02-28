@@ -1,18 +1,11 @@
 import "./panel.css";
-import { useState } from "react";
 
-export default function Panel({ title, children }) {
-  const [showContent, setShowContent] = useState(false);
-  function onShowClick() {
-    setShowContent(true);
-  }
+export default function Panel({ title, children, showContent, onShow }) {
   return (
     <section className="panel">
       <h1 className="panel-title">{title}</h1>
       {showContent ? <section className="panel-content">{children}</section> : null}
-      <footer className="panel-footer">
-        <button onClick={onShowClick}>Show</button>
-      </footer>
+      <footer className="panel-footer">{!showContent ? <button onClick={onShow}>Show</button> : null}</footer>
     </section>
   );
 }
