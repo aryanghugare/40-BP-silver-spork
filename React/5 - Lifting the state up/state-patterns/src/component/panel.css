@@ -1,0 +1,18 @@
+.panel {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panel-title {
+  border-bottom: 2px solid;
+  margin: 0 -16px;
+  padding: 8px;
+  font-size: 1rem;
+}
+.panel-footer {
+  padding-bottom: 8px;
+}

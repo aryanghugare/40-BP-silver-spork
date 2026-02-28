@@ -12,7 +12,7 @@ function TodoList({ todos, onTodoChange }) {
             checked={todo.completed}
             name={`${todo.title}`}
             id={todo.id}
-            onChange={() => handleChange(event, todo.id)}
+            onChange={(event) => handleChange(event, todo.id)}
           />
           {todo.title}
         </li>

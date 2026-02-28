@@ -12,10 +12,7 @@ export default function Todos() {
   }
   function todoUpdated(todoId, completed) {
     setTodos((prevTodos) => {
-      const updatedTodos = [...prevTodos];
-      const index = updatedTodos.findIndex((todo) => todo.id === todoId);
-      updatedTodos[index].completed = completed;
-      return updatedTodos;
+      return prevTodos.map((todo) => (todo.id === todoId ? { ...todo, completed } : { ...todo }));
     });
   }
   return (
