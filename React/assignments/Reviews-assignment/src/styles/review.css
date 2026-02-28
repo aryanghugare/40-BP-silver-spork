@@ -1,0 +1,20 @@
+.review {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+  .person-img {
+    object-fit: contain;
+    width: 100%;
+  }
+  .review-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}
