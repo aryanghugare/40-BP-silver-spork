@@ -4,11 +4,15 @@ import "./index.css";
 import App from "./App.jsx";
 import PostSelector from "./component/post-selector.jsx";
 import Timer from "./component/timer.jsx";
+import LifeCyle from "./component/life-cycle.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    {/* <App /> */}
+  <>
+    {/* <StrictMode> */}
+    <App />
     {/* <PostSelector /> */}
-    <Timer />
-  </StrictMode>,
+    {/* <Timer /> */}
+    {/* <LifeCyle /> */}
+    {/* </StrictMode> */}
+  </>,
 );

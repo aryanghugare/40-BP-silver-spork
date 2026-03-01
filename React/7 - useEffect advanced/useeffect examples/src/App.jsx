@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Post from "./component/post";
+import LifeCyle from "./component/life-cycle";
 
 function App() {
   const [post, setPost] = useState(null);
+  const [hide, setHide] = useState(false);
 
   async function fetchPosts() {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
@@ -19,7 +21,20 @@ function App() {
   // the initial render
   // if no dependency array is provided then it will run on every render
 
-  return <Post post={post} />;
+  return (
+    <>
+      <Post post={post} />;{hide ? " Life cycle is hidden" : <LifeCyle />}
+      <button
+        onClick={() => {
+          console.log("hide called");
+          setHide(true);
+        }}
+      >
+        Hide
+      </button>
+      <button onClick={() => setHide(false)}>Show</button>
+    </>
+  );
 }
 
 export default App;
