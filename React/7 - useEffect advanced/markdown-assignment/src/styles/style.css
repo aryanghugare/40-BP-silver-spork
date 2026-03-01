@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+.markdown-editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.preview {
+  background-color: slategray;
+  padding: 16px;
+}
+.loading {
+  height: 1.5rem;
+}
