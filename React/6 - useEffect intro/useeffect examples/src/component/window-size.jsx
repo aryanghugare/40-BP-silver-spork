@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 export function WindowSize() {
   function onResize(event) {
     console.log(event);
