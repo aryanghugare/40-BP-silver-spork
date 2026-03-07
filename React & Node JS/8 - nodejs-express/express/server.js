@@ -76,7 +76,17 @@ app.get("/", (req, res) => {
     res.send("Hello express!")
 });
 app.get("/user", (req, res) => {
+    // reading query params
+    if (req.query.name) {
+        res.json(users.find(user => user.name.includes(req.query.name)))
+    }
     res.json(users)
+})
+app.get("/user/:id", (req, res) => {
+    // reading route params
+    const userId = req.params.id;
+    console.log(req.params);
+    res.status(200).send(users.find(user => user.id == userId));
 })
 app.post("/user", (req, res) => {
     const { user } = req.body;
