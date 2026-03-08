@@ -1,25 +1,24 @@
 import { useState, useEffect } from "react";
 import AddTodo from "./add-todo";
 import TodoList from "./todo-list";
-import { addTodo, fetchTodos } from "../../api";
+import { addTodo, fetchTodos, updateCompletionStatus } from "../../api";
 import "./todos.css";
 
 export default function Todos() {
   const [todos, setTodos] = useState([]);
+  const [updated, setUpdated] = useState(false);
 
   useEffect(() => {
     fetchTodos().then(setTodos).catch(console.error);
-  }, []);
+  }, [updated]);
 
   function todoAdded(newTodo) {
     if (newTodo) {
-      addTodo(newTodo);
+      addTodo(newTodo).then(() => setUpdated(!updated));
     }
   }
   function todoUpdated(todoId, completed) {
-    setTodos((prevTodos) => {
-      return prevTodos.map((todo) => (todo.id === todoId ? { ...todo, completed } : { ...todo }));
-    });
+    updateCompletionStatus(todoId, completed).then(() => setUpdated(!updated));
   }
   return (
     <>
