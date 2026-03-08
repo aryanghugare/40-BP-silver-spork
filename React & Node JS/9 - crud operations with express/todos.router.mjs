@@ -1,16 +1,20 @@
-import { Router } from "express";
+import { Router, json } from "express";
 import { todos } from "./db.mjs";
 
 const router = Router();
+router.use(json())
 router.get("/", (req, res) => {
     res.json(todos);
 }).post("/", (req, res) => {
     try {
+        console.log("body", req.body)
         if (!req.body.title) {
             res.status(400).send({ message: "Title is required" })
         } else {
+            console.log("post called");
+            console.log(req.body)
             const { title } = req.body;
-            const createdTodo = createNewTodo(title)
+            const createdTodo = createNewTodo(title);
             res.status(201).send(createdTodo);
         }
     } catch (ex) {
