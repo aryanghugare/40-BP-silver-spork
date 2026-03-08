@@ -2,6 +2,14 @@ const express = require("express");
 const app = express();
 app.use(express.json()) // added json middleware which parses the contents of body
 // and make it available on req.body
+
+function logger(req, res, next) {
+    console.log("logger called");
+    console.log(req.url);
+    next();
+}
+app.use(logger);
+
 const users = [{
     "id": 1,
     "name": "Leanne Graham",
@@ -75,25 +83,39 @@ const users = [{
 app.get("/", (req, res) => {
     res.send("Hello express!")
 });
-app.get("/user", (req, res) => {
+
+app.route("/user").get((req, res) => {
     // reading query params
     if (req.query.name) {
         res.json(users.find(user => user.name.includes(req.query.name)))
     }
     res.json(users)
+}).post((req, res) => {
+    const { user } = req.body;
+    console.log(user);
+    res.status(201);
+    res.send("user created")
 })
+
+// app.get("/user", (req, res) => {
+//     // reading query params
+//     if (req.query.name) {
+//         res.json(users.find(user => user.name.includes(req.query.name)))
+//     }
+//     res.json(users)
+// })
 app.get("/user/:id", (req, res) => {
     // reading route params
     const userId = req.params.id;
     console.log(req.params);
     res.status(200).send(users.find(user => user.id == userId));
 })
-app.post("/user", (req, res) => {
-    const { user } = req.body;
-    console.log(user);
-    res.status(201);
-    res.send("user created")
-})
+// app.post("/user", (req, res) => {
+//     const { user } = req.body;
+//     console.log(user);
+//     res.status(201);
+//     res.send("user created")
+// })
 app.listen(3002, () => {
     console.log("Server started on port:3002")
 })
