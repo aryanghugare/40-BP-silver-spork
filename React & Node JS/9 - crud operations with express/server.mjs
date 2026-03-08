@@ -1,6 +1,7 @@
 import express from "express";
 import todosRouter from "./todos.router.mjs"
 const app = express();
+app.use(express.json());
 const port = 3000;
 
 app.get("/", (req, res) => {
