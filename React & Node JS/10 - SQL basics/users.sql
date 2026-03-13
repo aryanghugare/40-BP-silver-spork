@@ -62,3 +62,33 @@ select * from users order by age asc;
 
 -- limit 
 select * from users order by age desc limit 1;
+
+
+how % works in sql
+
+-- % is a wildcard character used in SQL with the LIKE operator to match any sequence of characters (including zero characters). 
+-- It is used for pattern matching in string comparisons.
+
+-- For example, if you want to find all users whose name starts with 'R', you can use:
+select * from users where name ILIKE 'R%';
+-- This will return all users whose name starts with 'R', such as 'Rahul', 'Rohit', etc.
+-- '%r' ends with r
+select * from users where name ILIKE '%r';
+-- '_r%' -- r is the second character    
+select * from users where name ILIKE '_r%';
+
+multiple conditions can be combined using AND, OR, and NOT operators in the WHERE clause.
+select * from users where age > 20 and role like 'user';
+
+
+select * from users where age >= 18 and age <=25;
+
+select * from users where age between 18 and 25;
+
+select * from users where role = 'admin' or role = 'manager';
+
+select * from users where age > 18 or role  = 'admin';
+
+select * from users where age in (18, 21, 29);
+
+select * from users where age in (select age from users where age > 18); -- subquery
