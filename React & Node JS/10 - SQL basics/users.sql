@@ -92,3 +92,6 @@ select * from users where age > 18 or role  = 'admin';
 select * from users where age in (18, 21, 29);
 
 select * from users where age in (select age from users where age > 18); -- subquery
+
+
+-- drop table users; we can remove a table
