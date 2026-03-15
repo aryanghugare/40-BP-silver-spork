@@ -4,14 +4,12 @@ import studentsRouter from "./students-router.mjs";
 const app = express();
 
 app.use(express.json());
-
 app.use("/students", studentsRouter);
 
-/** @type {import("mongodb").Db} */
-let db;
+
 const server = app.listen(3000, async () => {
     console.log("Server is running on port 3000");
-    db = await connect(process.env.CONNECTION_STRING);
+    await connect(process.env.CONNECTION_STRING);
 })
 
 process.on("SIGINT", async () => {
