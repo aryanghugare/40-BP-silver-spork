@@ -1,6 +1,11 @@
 import express from "express";
 import { connect, disconnect } from "./db.mjs";
+import studentsRouter from "./students-router.mjs";
 const app = express();
+
+app.use(express.json());
+
+app.use("/students", studentsRouter);
 
 /** @type {import("mongodb").Db} */
 let db;
