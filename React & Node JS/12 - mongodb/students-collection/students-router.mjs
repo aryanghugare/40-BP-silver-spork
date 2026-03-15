@@ -14,6 +14,45 @@ function getCollection() {
 // $nin = "not in array"
 // $regex = "regular expression"
 
+function simpleAggregation() {
+    const collection = getCollection();
+    return collection.aggregate([
+        {
+            $group: {
+                _id: "$course",
+                totalStudents: { $sum: 1 },
+            },
+        }
+    ]).toArray();
+}
+
+function groupByCourse() {
+    const collection = getCollection();
+    return collection.aggregate([
+        {
+            $sort: { "course": 1, "marks": -1 }
+        },
+        {
+            $group: {
+                _id: "$course",
+                totalStudents: { $sum: 1 },
+                topScorer: { $first: "$name" },
+                topScore: { $first: "$marks" },
+            },
+        }, {
+            $set: {
+                course: "$_id",
+                topPerformer: {
+                    name: "$topScorer",
+                    marks: "$topScore"
+                }
+            },
+        }, {
+            $unset: ["_id", "topScorer", "topScore"]
+        }
+    ]).toArray();
+}
+
 function sortByMarks(ascending = true) {
     const collection = getCollection();
     // 1 indicates ascending order, 
@@ -49,7 +88,8 @@ studentsRouter.get("/", async (req, res) => {
     // const students = await findHighScorers();
     // const students = await sortByMarks();
     // const students = await sortByMarks(false);
-    const students = await getTopScorer();
+    // const students = await getTopScorer();
+    const students = await groupByCourse();
 
     res.json(students);
 });
