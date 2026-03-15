@@ -14,6 +14,7 @@ function getCollection() {
 // $nin = "not in array"
 // $regex = "regular expression"
 
+// select * from students group by course having count(*) > 1 and age > 20;
 function simpleAggregation() {
     const collection = getCollection();
     return collection.aggregate([
@@ -22,6 +23,11 @@ function simpleAggregation() {
                 _id: "$course",
                 totalStudents: { $sum: 1 },
             },
+        },
+        {
+            $match: {
+                totalStudents: { $gt: 1 },
+            }
         }
     ]).toArray();
 }
@@ -82,14 +88,15 @@ function filterByName() {
 }
 studentsRouter.get("/", async (req, res) => {
     const collection = getCollection();
-    // const students = await collection.find({}).toArray();
+    const students = await collection.find({}).toArray();
     // const students = await filterByAge();
     // const students = await filterByName();
     // const students = await findHighScorers();
     // const students = await sortByMarks();
     // const students = await sortByMarks(false);
     // const students = await getTopScorer();
-    const students = await groupByCourse();
+    // const students = await groupByCourse();
+    // const students = await simpleAggregation();
 
     res.json(students);
 });
@@ -106,6 +113,14 @@ studentsRouter.delete("/:id", async (req, res) => {
     const { id } = req.params;
     const collection = getCollection();
     const result = await collection.deleteOne({ _id: new ObjectId(id) });
+    res.json(result);
+});
+// update student set marks = 99, name = "juhi" where id = id
+studentsRouter.patch("/:id", async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    const collection = getCollection();
+    const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: updates });
     res.json(result);
 });
 
