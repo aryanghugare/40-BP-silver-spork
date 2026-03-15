@@ -5,9 +5,36 @@ const studentsRouter = Router();
 function getCollection() {
     return getDB().collection("students");
 }
+
+// $gt = "greater than"
+// $lt = "less than"
+// $gte = "greater than or equal to"
+// $lte = "less than or equal to"
+// $in = "in array"
+// $nin = "not in array"
+// $regex = "regular expression"
+function filterByAge() {
+    const collection = getCollection();
+    return collection.find({ age: { $gt: 20, $lt: 25 } }).toArray();
+}
+function findHighScorers() {
+    const collection = getCollection();
+    // return all documents where marks in any course is greater than 80
+    return collection.find({ marks: { $gt: 80 } }).toArray();
+}
+function filterByName() {
+    const collection = getCollection();
+    // return all documents where name starts with "h" or "H"
+    return collection.find({ name: { $regex: /h/i } }).toArray();
+    // return collection.find({ name: 'manoj' }).toArray();
+}
 studentsRouter.get("/", async (req, res) => {
     const collection = getCollection();
-    const students = await collection.find({}).toArray();
+    // const students = await collection.find({}).toArray();
+    // const students = await filterByAge();
+    // const students = await filterByName();
+    const students = await findHighScorers();
+
     res.json(students);
 });
 
