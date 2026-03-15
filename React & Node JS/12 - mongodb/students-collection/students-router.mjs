@@ -13,6 +13,19 @@ function getCollection() {
 // $in = "in array"
 // $nin = "not in array"
 // $regex = "regular expression"
+
+function sortByMarks(ascending = true) {
+    const collection = getCollection();
+    // 1 indicates ascending order, 
+    // -1 indicates descending order
+    return collection.find({}).sort({ marks: ascending ? 1 : -1 }).toArray();
+}
+
+function getTopScorer() {
+    const collection = getCollection();
+    return collection.find({}).sort({ marks: -1 }).limit(1).toArray();
+}
+
 function filterByAge() {
     const collection = getCollection();
     return collection.find({ age: { $gt: 20, $lt: 25 } }).toArray();
@@ -33,7 +46,10 @@ studentsRouter.get("/", async (req, res) => {
     // const students = await collection.find({}).toArray();
     // const students = await filterByAge();
     // const students = await filterByName();
-    const students = await findHighScorers();
+    // const students = await findHighScorers();
+    // const students = await sortByMarks();
+    // const students = await sortByMarks(false);
+    const students = await getTopScorer();
 
     res.json(students);
 });
