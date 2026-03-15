@@ -1,7 +1,6 @@
 import { MongoClient } from "mongodb";
 let client;
-export async function
-    connect(connectionString) {
+export async function connect(connectionString) {
     console.log("Connecting to mongo server...");
     try {
         client = new MongoClient(connectionString);
