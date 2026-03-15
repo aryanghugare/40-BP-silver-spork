@@ -1,6 +1,6 @@
-import { MongoClient } from "mongodb";
+import { MongoClient } from "../intro/node_modules/mongodb/mongodb";
 let client;
-/** @type {import("mongodb").Db} */
+/** @type {import("../intro/node_modules/mongodb/mongodb").Db} */
 let db;
 export async function connect(connectionString) {
     console.log("Connecting to mongo server...");

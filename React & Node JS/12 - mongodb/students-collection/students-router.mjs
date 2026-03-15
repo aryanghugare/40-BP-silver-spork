@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getDB } from "./db.mjs";
-import { ObjectId } from "mongodb";
+import { ObjectId } from "../intro/node_modules/mongodb/mongodb";
 const studentsRouter = Router();
 function getCollection() {
     return getDB().collection("students");
