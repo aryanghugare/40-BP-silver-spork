@@ -24,10 +24,11 @@ async function connect() {
 
 }
 
+
 app.post("/posts", async (req, res) => {
     const { author, ...rest } = req.body;
     db = await connect();
-    const existingPost = await db.collection("posts").find({ author });
+    const existingPost = await db.collection("posts").findOne({ author });
     if (existingPost) {
         result = await db.collection("posts").updateOne({
             author
