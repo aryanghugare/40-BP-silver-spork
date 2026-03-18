@@ -1,24 +1,10 @@
 import { Router } from "express";
 import { getDB } from "./db.mjs";
-import seedProducts from "./products-seed.mjs";
-
 const productsRouter = Router();
 
 const getCollection = () => {
     return getDB().collection("products");
 }
-
-productsRouter.post("/seed", async (req, res) => {
-    const collection = getCollection();
-    try {
-
-        await collection.insertMany(seedProducts);
-        res.send("Products seeded successfully");
-    } catch (err) {
-        console.error("Error seeding products:", err);
-        res.status(500).send("Error seeding products");
-    }
-})
 
 productsRouter.get("/", async (req, res) => {
     const collection = getCollection();

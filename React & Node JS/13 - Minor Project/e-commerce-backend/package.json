@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch --env-file=.env server.mjs"
+    "start": "node --watch --env-file=.env server.mjs",
+    "seed-products": "node --env-file=.env products-seed.mjs"
   },
   "keywords": [],
   "author": "",

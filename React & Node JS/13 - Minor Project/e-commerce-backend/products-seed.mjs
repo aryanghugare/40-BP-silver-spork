@@ -1,3 +1,4 @@
+import { connect, disconnect, getDB } from "./db.mjs";
 const products = [
   {
     "id": 1,
@@ -249,6 +250,20 @@ let filterdProducts = products.filter(product => product.category.includes("clot
     size: ["S", "M", "L", "XL", "XXL"],
   }
 })
+
+async function seedProducts() {
+  await connect(process.env.CONNECTION_STRING);
+  const db = getDB();
+  const collection = db.collection("products");
+  await collection.deleteMany({});
+
+  await collection.insertMany(filterdProducts);
+  console.log("Products seeded successfully");
+  await disconnect();
+
+}
+
+seedProducts();
 
 export default filterdProducts;
 
