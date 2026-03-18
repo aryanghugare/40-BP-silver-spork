@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import ProductGallery from "./components/product-gallery";
+import ProductGallery from "./components/product/product-gallery";
 import Cart from "./components/cart";
 import { fetchProducts } from "./api/api";
 
