@@ -1,8 +1,9 @@
 import express from "express";
 import { connect, disconnect } from "./db.mjs";
 import productsRouter from "./products-router.mjs";
+import cors from "cors";
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 app.use("/products", productsRouter);
