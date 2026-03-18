@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use("/products", productsRouter);
 
-app.listen(process.env.PORT, async () => {
+const server = app.listen(process.env.PORT, async () => {
     console.log(`Server is running on port ${process.env.PORT}`);
     await connect(process.env.CONNECTION_STRING);
 })
