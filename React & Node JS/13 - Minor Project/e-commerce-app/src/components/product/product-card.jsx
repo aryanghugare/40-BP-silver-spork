@@ -1,6 +1,7 @@
 import React from "react";
 import ProductSize from "./product-size";
 import ProductColor from "./product-color";
+import QuantityCounter from "./quantity-counter";
 
 export default function ProductCard({ product }) {
   function setSize(size) {
@@ -10,6 +11,9 @@ export default function ProductCard({ product }) {
     console.log(color);
   }
 
+  function setQuantity(count) {
+    console.log(count);
+  }
   return (
     <article className="product-card">
       <header>
@@ -20,6 +24,7 @@ export default function ProductCard({ product }) {
       <p className="product-price">${product.price.toFixed(2)}</p>
       <ProductSize sizeList={product.size} onSizeSelect={setSize} />
       <ProductColor colorList={product.color} onColorSelect={setColor} />
+      <QuantityCounter onUpdate={setQuantity} />
       <footer>
         <button>Add to Cart</button>
       </footer>
