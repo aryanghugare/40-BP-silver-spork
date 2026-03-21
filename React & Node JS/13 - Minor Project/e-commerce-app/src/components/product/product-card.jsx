@@ -1,9 +1,13 @@
 import React from "react";
 import ProductSize from "./product-size";
+import ProductColor from "./product-color";
 
 export default function ProductCard({ product }) {
   function setSize(size) {
     console.log(size);
+  }
+  function setColor(color) {
+    console.log(color);
   }
 
   return (
@@ -15,12 +19,7 @@ export default function ProductCard({ product }) {
       <p className="product-description truncate-2">{product.description}</p>
       <p className="product-price">${product.price.toFixed(2)}</p>
       <ProductSize sizeList={product.size} onSizeSelect={setSize} />
-      <section className="product-colors">
-        <label>Colors: </label>
-        {product.color.map((color) => (
-          <button key={color}>{color}</button>
-        ))}
-      </section>
+      <ProductColor colorList={product.color} onColorSelect={setColor} />
       <footer>
         <button>Add to Cart</button>
       </footer>
