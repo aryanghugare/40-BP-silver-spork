@@ -1,21 +1,16 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 export default function QuantityCounter({ onUpdate }) {
   const [count, setCount] = useState(1);
+  useEffect(() => {
+    onUpdate(count);
+  }, [count]);
   function updateCounter(type = "increment") {
-    let updatedCount;
     if (type === "increment") {
-      setCount((prevCount) => {
-        updatedCount = prevCount + 1;
-        onUpdate(updatedCount);
-        return updatedCount;
-      });
+      setCount((prevCount) => prevCount + 1);
     } else {
-      setCount((prevCount) => {
-        updatedCount = prevCount - 1;
-        onUpdate(updatedCount);
-        return updatedCount;
-      });
+      setCount((prevCount) => prevCount - 1);
     }
   }
   return (

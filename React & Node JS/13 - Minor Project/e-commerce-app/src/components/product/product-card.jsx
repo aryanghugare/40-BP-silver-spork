@@ -2,18 +2,27 @@ import React from "react";
 import ProductSize from "./product-size";
 import ProductColor from "./product-color";
 import QuantityCounter from "./quantity-counter";
+import { useState } from "react";
 
 export default function ProductCard({ product }) {
+  const [attributes, setAttributes] = useState({});
+
   function setSize(size) {
-    console.log(size);
+    setAttributes((prev) => ({ ...prev, size }));
   }
   function setColor(color) {
     console.log(color);
+    setAttributes((prev) => ({ ...prev, color }));
   }
 
-  function setQuantity(count) {
-    console.log(count);
+  function setQuantity(quantity) {
+    setAttributes((prev) => ({ ...prev, quantity }));
   }
+
+  function addToCartClicked() {
+    console.log({ title: product.title, id: product._id, price: product.price, ...attributes });
+  }
+
   return (
     <article className="product-card">
       <header>
@@ -28,7 +37,7 @@ export default function ProductCard({ product }) {
       <ProductColor colorList={product.color} onColorSelect={setColor} />
       <QuantityCounter onUpdate={setQuantity} />
       <footer>
-        <button>Add to Cart</button>
+        <button onClick={addToCartClicked}>Add to Cart</button>
       </footer>
     </article>
   );
