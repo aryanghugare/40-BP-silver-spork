@@ -19,7 +19,7 @@ export default function QuantityCounter({ onUpdate }) {
     }
   }
   return (
-    <section>
+    <section className="product-quantity">
       <button onClick={() => updateCounter()}>+</button>
       <span>{count}</span>
       <button onClick={() => updateCounter("decrement")}>-</button>

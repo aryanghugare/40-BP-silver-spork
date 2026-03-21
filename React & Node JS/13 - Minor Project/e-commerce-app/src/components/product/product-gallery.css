@@ -59,5 +59,17 @@
         font-size: 0.75rem;
       }
     }
+    .product-quantity {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      button {
+        padding: 0;
+        height: 32px;
+        width: 32px;
+        font-size: 0.6rem;
+      }
+    }
   }
 }
