@@ -16,6 +16,9 @@
     box-shadow: 1px 1px 3px 2px lightslategray;
     border-radius: 8px;
     button {
+      &.active {
+        border: 2px solid yellow;
+      }
       background-color: black;
     }
     .product-title {

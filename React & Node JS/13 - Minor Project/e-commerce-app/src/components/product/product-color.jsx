@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export default function ProductColor({ colorList, onColorSelect }) {
+  const [activeColor, setActiveColor] = useState("");
   const colorPallete = new Map([
     ["red", "#EF4444"],
     ["blue", "#3b82f6"],
@@ -11,7 +14,11 @@ export default function ProductColor({ colorList, onColorSelect }) {
       {colorList?.map((color) => (
         <button
           key={color}
-          onClick={() => onColorSelect(color)}
+          className={color === activeColor ? "active" : ""}
+          onClick={() => {
+            setActiveColor(color);
+            onColorSelect(color);
+          }}
           style={{ backgroundColor: colorPallete.get(color) }}
         ></button>
       ))}
