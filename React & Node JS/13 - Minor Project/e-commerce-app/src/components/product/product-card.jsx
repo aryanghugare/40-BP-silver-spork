@@ -4,7 +4,7 @@ import ProductColor from "./product-color";
 import QuantityCounter from "./quantity-counter";
 import { useState } from "react";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onAddToCartClick }) {
   const [attributes, setAttributes] = useState({});
 
   function setSize(size) {
@@ -20,7 +20,8 @@ export default function ProductCard({ product }) {
   }
 
   function addToCartClicked() {
-    console.log({ title: product.title, id: product._id, price: product.price, ...attributes });
+    onAddToCartClick({ title: product.title, id: product.id, price: product.price, ...attributes });
+    console.log({ title: product.title, id: product.id, price: product.price, ...attributes });
   }
 
   return (

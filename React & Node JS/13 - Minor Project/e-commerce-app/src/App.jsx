@@ -9,6 +9,10 @@ import { fetchProducts } from "./api/api";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+  function onAdd(cartItem) {
+    setCartItems((prev) => [...prev, cartItem]);
+  }
 
   useEffect(() => {
     fetchProducts().then(setProducts);
@@ -18,8 +22,8 @@ function App() {
     <section className="container">
       <Header />
       <section className="content">
-        <ProductGallery products={products} />
-        <Cart />
+        <ProductGallery products={products} onAdd={onAdd} />
+        <Cart cartItems={cartItems} />
       </section>
       <Footer />
     </section>
