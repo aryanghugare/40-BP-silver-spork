@@ -17,7 +17,8 @@
     border-radius: 8px;
     button {
       &.active {
-        border: 2px solid yellow;
+        outline: 2px solid;
+        outline-offset: 2px;
       }
       background-color: black;
     }
