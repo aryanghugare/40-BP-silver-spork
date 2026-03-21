@@ -1,6 +1,11 @@
 import React from "react";
+import ProductSize from "./product-size";
 
 export default function ProductCard({ product }) {
+  function setSize(size) {
+    console.log(size);
+  }
+
   return (
     <article className="product-card">
       <header>
@@ -9,12 +14,7 @@ export default function ProductCard({ product }) {
       <h3 className="product-title truncate">{product.title}</h3>
       <p className="product-description truncate-2">{product.description}</p>
       <p className="product-price">${product.price.toFixed(2)}</p>
-      <section className="product-sizes">
-        <label>Size: </label>
-        {product.size.map((size) => (
-          <button key={size}>{size}</button>
-        ))}
-      </section>
+      <ProductSize sizeList={product.size} onSizeSelect={setSize} />
       <section className="product-colors">
         <label>Colors: </label>
         {product.color.map((color) => (
