@@ -20,6 +20,10 @@ export default function ProductCard({ product, onAddToCartClick }) {
   }
 
   function addToCartClicked() {
+    if (!attributes.size || !attributes.color) {
+      alert("You need to select color and size");
+      return;
+    }
     onAddToCartClick({ title: product.title, productId: product.id, price: product.price, ...attributes });
     console.log({ title: product.title, id: product.id, price: product.price, ...attributes });
   }

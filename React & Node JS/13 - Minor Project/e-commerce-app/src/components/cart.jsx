@@ -1,6 +1,7 @@
 import React from "react";
 import "./cart.css";
 import ProductColor from "./product/product-color";
+import CartSubtotal from "./cart-subtotal";
 export default function Cart({ cartItems, onItemRemove }) {
   return (
     <section className="cart">
@@ -37,6 +38,7 @@ export default function Cart({ cartItems, onItemRemove }) {
             </article>
           ))
         : "No Items added in cart"}
+      <CartSubtotal cartItems={cartItems} />
     </section>
   );
 }
