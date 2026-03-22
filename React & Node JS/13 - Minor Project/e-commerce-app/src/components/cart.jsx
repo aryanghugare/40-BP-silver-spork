@@ -1,13 +1,13 @@
 import React from "react";
 import "./cart.css";
 import ProductColor from "./product/product-color";
-export default function Cart({ cartItems }) {
+export default function Cart({ cartItems, onItemRemove }) {
   return (
     <section className="cart">
       <h3 className="heading">Cart</h3>
       {cartItems.length
         ? cartItems.map((item) => (
-            <article key={item.id} className="cart-item">
+            <article key={item._id} className="cart-item">
               <header className="item-title">
                 <p>{item.title}</p>
               </header>
@@ -31,6 +31,9 @@ export default function Cart({ cartItems }) {
                   </section>
                 </section>
               </section>
+              <footer>
+                <button onClick={() => onItemRemove(item._id)}>Remove</button>
+              </footer>
             </article>
           ))
         : "No Items added in cart"}

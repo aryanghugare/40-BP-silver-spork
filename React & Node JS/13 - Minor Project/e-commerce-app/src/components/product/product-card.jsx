@@ -20,7 +20,7 @@ export default function ProductCard({ product, onAddToCartClick }) {
   }
 
   function addToCartClicked() {
-    onAddToCartClick({ title: product.title, id: product.id, price: product.price, ...attributes });
+    onAddToCartClick({ title: product.title, productId: product.id, price: product.price, ...attributes });
     console.log({ title: product.title, id: product.id, price: product.price, ...attributes });
   }
 
