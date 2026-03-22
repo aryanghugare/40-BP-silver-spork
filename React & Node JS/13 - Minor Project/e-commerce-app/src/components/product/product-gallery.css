@@ -12,7 +12,7 @@
     gap: 8px;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 1px 1px 3px 2px lightslategray;
+    box-shadow: 0px 0px 7px 1px lightslategray;
     border-radius: 8px;
     button {
       &.active {
