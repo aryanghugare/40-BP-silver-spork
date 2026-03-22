@@ -3,6 +3,9 @@
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+  .heading {
+    padding: 0;
+  }
   .cart-item {
     display: flex;
     flex-direction: column;

@@ -4,7 +4,7 @@ import ProductColor from "./product/product-color";
 export default function Cart({ cartItems }) {
   return (
     <section className="cart">
-      <h1>Cart</h1>
+      <h3 className="heading">Cart</h3>
       {cartItems.length
         ? cartItems.map((item) => (
             <article key={item.id} className="cart-item">
@@ -17,7 +17,10 @@ export default function Cart({ cartItems }) {
                   <p>${item.price}</p>
                 </section>
                 <section>
-                  <ProductColor colorList={[item.color]} readOnly />
+                  <section className="item-group">
+                    <label htmlFor="">Color:</label>
+                    <ProductColor colorList={[item.color]} readOnly />
+                  </section>
                   <section className="item-group">
                     <label htmlFor="quantiy">Quantity:</label>
                     <p>{item.quantity}</p>

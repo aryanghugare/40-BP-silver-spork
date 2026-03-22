@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ProductColor({ colorList, onColorSelect, readOnly = false }) {
+export default function ProductColor({ colorList, onColorSelect = () => {}, readOnly = false }) {
   const [activeColor, setActiveColor] = useState("");
   const colorPallete = new Map([
     ["red", "#EF4444"],
