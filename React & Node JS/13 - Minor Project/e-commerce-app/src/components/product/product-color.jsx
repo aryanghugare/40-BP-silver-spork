@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ProductColor({ colorList, onColorSelect }) {
+export default function ProductColor({ colorList, onColorSelect, readOnly = false }) {
   const [activeColor, setActiveColor] = useState("");
   const colorPallete = new Map([
     ["red", "#EF4444"],
@@ -16,8 +16,10 @@ export default function ProductColor({ colorList, onColorSelect }) {
           key={color}
           className={color === activeColor ? "active" : ""}
           onClick={() => {
-            setActiveColor(color);
-            onColorSelect(color);
+            if (!readOnly) {
+              setActiveColor(color);
+              onColorSelect(color);
+            }
           }}
           style={{ backgroundColor: colorPallete.get(color) }}
         ></button>
