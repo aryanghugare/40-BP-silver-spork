@@ -3,6 +3,7 @@ import ProductSize from "./product-size";
 import ProductColor from "./product-color";
 import QuantityCounter from "./quantity-counter";
 import { useState } from "react";
+import ImageSlider from "./image-slider";
 
 export default function ProductCard({ product, onAddToCartClick }) {
   const [attributes, setAttributes] = useState({});
@@ -30,8 +31,8 @@ export default function ProductCard({ product, onAddToCartClick }) {
 
   return (
     <article className="product-card">
-      <header>
-        <img className="product-image" src={product.image} alt={product.title} />
+      <header className="product-header">
+        <ImageSlider images={product.images} />
       </header>
       <h3 className="product-title truncate">{product.title}</h3>
       <p title={product.description} className="product-description truncate-2">

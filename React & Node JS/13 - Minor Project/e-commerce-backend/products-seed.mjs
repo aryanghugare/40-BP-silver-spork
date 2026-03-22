@@ -246,6 +246,8 @@ const products = [
 let filterdProducts = products.filter(product => product.category.includes("clothing")).map(product => {
   return {
     ...product,
+    images: [product.image, "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png",
+      "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_t.png"],
     color: ["red", "blue", "green", "black", "white"],
     size: ["S", "M", "L", "XL", "XXL"],
   }
@@ -254,13 +256,18 @@ let filterdProducts = products.filter(product => product.category.includes("clot
 async function seedProducts() {
   await connect(process.env.CONNECTION_STRING);
   const db = getDB();
+  await clearCart(db);
   const collection = db.collection("products");
   await collection.deleteMany({});
-
   await collection.insertMany(filterdProducts);
   console.log("Products seeded successfully");
   await disconnect();
 
+}
+
+async function clearCart(db) {
+  await db.collection("cartItem").deleteMany({});
+  console.log("Cart cleared successfully");
 }
 
 seedProducts();

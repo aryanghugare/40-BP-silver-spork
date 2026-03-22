@@ -1,3 +1,3 @@
 export default function Header() {
-  return <header className="main-header">Header</header>;
+  return <header className="main-header">Accio Bazaar</header>;
 }

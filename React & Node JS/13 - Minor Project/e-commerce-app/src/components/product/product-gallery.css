@@ -21,6 +21,20 @@
       }
       background-color: black;
     }
+    .product-header {
+      position: relative;
+      .prev-btn,
+      .next-btn {
+        position: absolute;
+        top: 50%;
+      }
+      .next-btn {
+        right: 0;
+      }
+      .prev-btn {
+        left: 0;
+      }
+    }
     .product-title {
       font-size: 1rem;
       font-weight: 500;

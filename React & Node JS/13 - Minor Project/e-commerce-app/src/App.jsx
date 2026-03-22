@@ -24,7 +24,6 @@ function App() {
   }
 
   async function removeItemFromCart(itemId) {
-    console.log(itemId);
     const result = await removeFromCart(itemId);
     if (result.deletedCount) {
       getCartItems();
