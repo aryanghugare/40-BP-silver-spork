@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
+import "./header.css";
 
 export default function Header() {
   return (
@@ -7,13 +8,24 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>{" "}
+            <NavLink
+              to="/"
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  // color: isPending ? "red" : "",
+                  // viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+            >
+              {({ isActive, isPending, isTransitioning }) => <span className={isActive ? "highlight" : ""}>Home</span>}
+            </NavLink>{" "}
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/settings">Settings</Link>
+            <NavLink to="/settings">Settings</NavLink>
           </li>
         </ul>
       </nav>
