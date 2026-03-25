@@ -8,6 +8,7 @@ import Settings from "./components/settings";
 import UserSettings from "./components/user-settings";
 import AdminSettings from "./components/admin-settings";
 import Product from "./components/product";
+import ProtectedRoute from "./components/protected-route";
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="settings" element={<Settings />}>
+          <Route
+            path="settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<UserSettings />} />
             <Route path="admin/:id" element={<AdminSettings />} />
           </Route>
