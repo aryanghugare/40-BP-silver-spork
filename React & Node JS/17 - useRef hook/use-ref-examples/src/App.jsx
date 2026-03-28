@@ -5,6 +5,7 @@ import "./App.css";
 import StopWatch from "./components/stop-watch";
 import Focus from "./components/focus";
 import ImageSlider from "./components/image-slider";
+import InfiniteScroll from "./components/infinite-scrol";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,6 +15,7 @@ function App() {
       <StopWatch />
       <Focus />
       <ImageSlider />
+      <InfiniteScroll />
     </>
   );
 }
