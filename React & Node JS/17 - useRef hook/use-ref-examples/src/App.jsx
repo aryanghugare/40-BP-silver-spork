@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import StopWatch from "./components/stop-watch";
 import Focus from "./components/focus";
+import ImageSlider from "./components/image-slider";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,6 +13,7 @@ function App() {
     <>
       <StopWatch />
       <Focus />
+      <ImageSlider />
     </>
   );
 }
