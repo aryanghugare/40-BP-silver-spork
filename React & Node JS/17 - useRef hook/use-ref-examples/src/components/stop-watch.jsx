@@ -23,7 +23,7 @@ export default function StopWatch() {
       <footer>
         <button onClick={start}>Start</button>
         <button onClick={stop}>Stop</button>
-        {/* <p>TimerId:{timerId.current}</p> */}
+        {/*❌ <p>TimerId:{timerId.current}</p> */}
       </footer>
     </article>
   );
