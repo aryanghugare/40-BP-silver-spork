@@ -6,7 +6,7 @@ export default function ImageSlider() {
     const imageItems = containerRef.current.querySelectorAll(".image-item");
     imageItems[index].scrollIntoView({
       behavior: "smooth",
-      inline: "nearest",
+      inline: "center",
       block: "start",
     });
   }
