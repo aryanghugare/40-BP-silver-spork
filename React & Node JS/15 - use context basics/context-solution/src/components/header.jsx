@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../App";
-
+import { ThemeContext } from "./theme-provider";
 export default function Header() {
   const { theme, setTheme } = useContext(ThemeContext);
   return (

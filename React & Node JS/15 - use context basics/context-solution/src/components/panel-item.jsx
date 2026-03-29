@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import PanelImage from "./panel-image";
-import { ThemeContext } from "../App";
-
+import { ThemeContext } from "./theme-provider";
 export default function PanelItem({ item }) {
   const { theme } = useContext(ThemeContext);
   return (
