@@ -1,6 +1,6 @@
 import PanelItem from "./panel-item";
 
-export default function PanelList({ imageSize }) {
+export default function PanelList() {
   const items = [
     {
       id: 1,
@@ -26,7 +26,7 @@ export default function PanelList({ imageSize }) {
   return (
     <section className="panel-list">
       {items.map((item) => (
-        <PanelItem key={item.id} size={imageSize} item={item} />
+        <PanelItem key={item.id} item={item} />
       ))}
     </section>
   );
