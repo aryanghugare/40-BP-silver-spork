@@ -35,7 +35,8 @@ function App() {
         </section>
       </SizeContext>
       {/* component which are not child of context provider will get the default value  */}
-      <PanelImage url={"https://placecats.com/200/200"} />
+      {/* this component 👇🏼 will get the default value of SizeContext i.e small */}
+      <PanelItem item={{ id: 6, image: "https://placecats.com/200/200", description: "Some desc" }} />
       <Footer />
     </ThemeContext>
   );
