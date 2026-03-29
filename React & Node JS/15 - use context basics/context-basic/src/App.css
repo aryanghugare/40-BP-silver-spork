@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+  place-content: center;
+  gap: 16px;
+}
+.panel-list {
+  display: grid;
+  gap: 16px;
+}
+.panel-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+  header {
+    justify-self: center;
+    transition: all ease-in 0.3s;
+    &.img-small {
+      height: 100px;
+      width: 100px;
+    }
+    &.img-large {
+      height: 150px;
+      width: 150px;
+    }
+    .image {
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .description {
+    align-self: center;
+  }
+}
