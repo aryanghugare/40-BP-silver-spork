@@ -5,7 +5,6 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import PanelItem from "./components/panel-item";
 import ThemeProvider from "./components/theme-provider";
-import { ThemeContext } from "./components/theme-provider";
 
 // context is created with default value
 export const SizeContext = createContext("small");
@@ -29,9 +28,9 @@ function App() {
             <label htmlFor="toggleImages">Show Large Image</label>
           </section>
           <PanelList />
-          <ThemeContext value={{ theme: "light" }}>
+          <ThemeProvider initialValue="light">
             <PanelItem item={{ id: 5, image: "https://placecats.com/200/200", description: "Some desc" }} />
-          </ThemeContext>
+          </ThemeProvider>
         </section>
       </SizeContext>
       {/* component which are not child of context provider will get the default value  */}
