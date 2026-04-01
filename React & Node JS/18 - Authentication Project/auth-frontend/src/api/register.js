@@ -10,13 +10,7 @@ export function registerUser({ name, email, password }) {
 }
 
 function getUsers() {
-    try {
-
-        return JSON.parse(localStorage.getItem(USERS))
-    } catch (ex) {
-        console.error(ex);
-        return null;
-    }
+    return getItem(USERS);
 }
 
 function setItem(key, value) {
