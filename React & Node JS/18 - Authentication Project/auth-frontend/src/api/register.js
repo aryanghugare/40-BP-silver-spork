@@ -1,4 +1,5 @@
-const USERS = "users";
+import { getItem, setItem } from "../helpers/local-storage";
+import { USERS } from "../helpers/common";
 export function registerUser({ name, email, password }) {
     let users = getUsers();
     if (!users) {
@@ -13,15 +14,3 @@ function getUsers() {
     return getItem(USERS);
 }
 
-function setItem(key, value) {
-    localStorage.setItem(key, JSON.stringify(value))
-}
-
-function getItem(key) {
-    try {
-        return JSON.parse(localStorage.getItem(key))
-    } catch (ex) {
-        console.error(ex);
-        return null;
-    }
-}

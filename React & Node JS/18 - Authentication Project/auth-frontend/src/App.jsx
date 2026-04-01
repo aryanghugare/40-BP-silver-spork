@@ -5,6 +5,7 @@ import Login from "./pages/login/login";
 import Profile from "./pages/profile/profile";
 import Signup from "./pages/signup/signup";
 import RegistrationLayout from "./components/registration-layout";
+import ProtectedRoute from "./components/protected-route";
 
 function App() {
   return (
@@ -14,7 +15,14 @@ function App() {
         <Route path="signup" element={<Signup />} />
       </Route>
 
-      <Route path="/" element={<Profile />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
