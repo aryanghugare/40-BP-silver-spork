@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router";
 
 export default function Login() {
   return (
@@ -18,8 +18,17 @@ export default function Login() {
         <input type="checkbox" name="rememberMe" id="rememberMe" className="size-4" />
         <label htmlFor="rememberMe">Remember me</label>
       </fieldset>
+
+      <button className="bg-black p-1 rounded text-white">Login</button>
+
+      <section className="flex  justify-around size-full">
+        <Link to={"/user/signup"}>Create Account</Link>
+      </section>
+
       <footer>
-        <button className="bg-black p-1 rounded text-white">Login</button>
+        <Link to={""} className="underline">
+          Forgot Password
+        </Link>
       </footer>
     </form>
   );
