@@ -1,4 +1,4 @@
 const USERS = "users";
+const CURRENT_USER = "currentUser";
 
-
-export { USERS }
+export { USERS, CURRENT_USER }

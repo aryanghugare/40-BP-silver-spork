@@ -1,4 +1,4 @@
-import { getItem, setItem } from "../helpers/local-storage";
+import { getItem, setItem } from "../helpers/storage";
 import { USERS } from "../helpers/common";
 export function registerUser({ name, email, password }) {
     let users = getUsers();
