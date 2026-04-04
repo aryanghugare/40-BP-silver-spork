@@ -6,6 +6,7 @@ import Profile from "./pages/profile/profile";
 import Signup from "./pages/signup/signup";
 import RegistrationLayout from "./components/registration-layout";
 import ProtectedRoute from "./components/protected-route";
+import Layout from "./components/layout";
 
 function App() {
   return (
@@ -19,10 +20,12 @@ function App() {
         path="/"
         element={
           <ProtectedRoute>
-            <Profile />
+            <Layout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route index element={<Profile />} />
+      </Route>
     </Routes>
   );
 }
